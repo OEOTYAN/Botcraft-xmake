@@ -11,7 +11,7 @@ target("botcraft_online_tests")
     add_packages("catch2")
     
     -- Set output directory
-    set_targetdir("$(buildir)/bin")
+    set_targetdir("$(builddir)/bin")
     
     -- Platform-specific configuration
     if is_plat("windows") then

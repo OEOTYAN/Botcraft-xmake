@@ -101,56 +101,9 @@ if has_config("build_tests") then
     add_requires("catch2")
 end
 
--- Define macro function to get protocol version
-local function get_protocol_version(game_version)
-    local version_map = {
-        ["1.12.2"] = "340",
-        ["1.13"] = "393",
-        ["1.13.1"] = "401",
-        ["1.13.2"] = "404",
-        ["1.14"] = "477",
-        ["1.14.1"] = "480",
-        ["1.14.2"] = "485",
-        ["1.14.3"] = "490",
-        ["1.14.4"] = "498",
-        ["1.15"] = "573",
-        ["1.15.1"] = "575", 
-        ["1.15.2"] = "578",
-        ["1.16"] = "735",
-        ["1.16.1"] = "736",
-        ["1.16.2"] = "751",
-        ["1.16.3"] = "753",
-        ["1.16.4"] = "754",
-        ["1.16.5"] = "754",
-        ["1.17"] = "755",
-        ["1.17.1"] = "756",
-        ["1.18"] = "757",
-        ["1.18.1"] = "757",
-        ["1.18.2"] = "758",
-        ["1.19"] = "759",
-        ["1.19.1"] = "760",
-        ["1.19.2"] = "760",
-        ["1.19.3"] = "761",
-        ["1.19.4"] = "762",
-        ["1.20"] = "763",
-        ["1.20.1"] = "763",
-        ["1.20.2"] = "764",
-        ["1.20.3"] = "765",
-        ["1.20.4"] = "765",
-        ["1.20.5"] = "766",
-        ["1.20.6"] = "766",
-        ["1.21"] = "767",
-        ["1.21.1"] = "767",
-        ["1.21.2"] = "768",
-        ["1.21.3"] = "768",
-        ["1.21.4"] = "769",
-        ["1.21.5"] = "770",
-        ["1.21.6"] = "771",
-        ["1.21.7"] = "772",
-        ["1.21.8"] = "772"
-    }
-    return version_map[game_version] or "772"
-end
+-- Include sub-projects
+includes("protocolCraft")
+includes("botcraft")
 
 -- Set global macro definitions
 local game_version = get_config("game_version") or "1.21.8"
@@ -158,10 +111,6 @@ local protocol_version = get_protocol_version(game_version)
 
 add_defines("PROTOCOL_VERSION=" .. protocol_version)
 add_defines("BOTCRAFT_GAME_VERSION=\"" .. game_version .. "\"")
-
--- Include sub-projects
-includes("protocolCraft")
-includes("botcraft")
 
 if has_config("build_examples") then
     includes("Examples")

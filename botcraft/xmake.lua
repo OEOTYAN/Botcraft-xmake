@@ -1,7 +1,7 @@
 -- XMake configuration for botcraft library
 
 -- Define protocol version mapping function
-local function get_protocol_version(game_version)
+function get_protocol_version(game_version)
     local version_map = {
         ["1.12.2"] = "340",
         ["1.13"] = "393",
@@ -63,7 +63,7 @@ target("botcraft")
     local game_version = get_config("game_version") or "1.21.8"
     local protocol_version = get_protocol_version(game_version)
     
-    add_configfiles("cmake/Version.hpp.in", {
+    add_configfiles("Version.hpp.in", {
         filename = "include/botcraft/Version.hpp",
         variables = {
             PROTOCOL_VERSION = protocol_version,
@@ -72,7 +72,7 @@ target("botcraft")
     })
 
     -- Add generated header directory
-    add_includedirs("$(buildir)/include", {public = true})
+    add_includedirs("$(builddir)/include", {public = true})
 
     -- Add header files
     add_headerfiles("include/**.hpp")

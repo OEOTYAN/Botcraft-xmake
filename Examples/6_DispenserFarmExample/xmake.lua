@@ -10,7 +10,7 @@ target("DispenserFarmExample")
     -- Add necessary package dependencies
     add_packages("openssl", "zlib")
     
-    set_targetdir("$(buildir)/bin")
+    set_targetdir("$(builddir)/bin")
     
     if is_plat("windows") then
         add_syslinks("ws2_32", "wsock32", "winmm")

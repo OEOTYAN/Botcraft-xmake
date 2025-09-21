@@ -14,7 +14,7 @@
 namespace Botcraft
 {
     class Biome;
-    class Section;
+    struct Section;
 
     //We assume that a chunk is 16*256*16 in versions before 1.18 and 16*N*16 after
     //And a section is 16*16*16
