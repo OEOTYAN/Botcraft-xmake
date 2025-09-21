@@ -9,6 +9,7 @@ target("protocolCraft_tests")
     -- Add dependencies
     add_deps("protocolCraft")
     add_packages("catch2")
+    add_packages("zlib")
     
     -- Set output directory
     set_targetdir("$(builddir)/bin")

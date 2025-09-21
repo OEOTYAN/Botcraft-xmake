@@ -9,6 +9,7 @@ target("botcraft_online_tests")
     -- Add dependencies
     add_deps("botcraft")
     add_packages("catch2")
+    add_packages("zlib")
     
     -- Set output directory
     set_targetdir("$(builddir)/bin")
