@@ -7,3 +7,5 @@
 /Assets/*/server*/
 /Assets/*/client.jar
 /scripts/
+/.vscode/
+/.xmake/
